@@ -1,0 +1,39 @@
+.header-wrapper {
+    display: inline-flex;
+    height: 70px;
+    width: 100%;
+    background-color: var(--bgColor);
+
+    .header-content {
+        width: 100%;
+        text-align: center;
+        .logo {
+            height: 55px;
+            margin-top: 15px;
+        }
+    }
+    
+    .theme-toggle {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    
+    .header-content:after {
+        content: "";
+        height: 1px;
+        background: linear-gradient(to right,  rgba(0,0,0,0) 15%,rgba(147,147,147,1) 50%,rgba(0,0,0,0) 85%);
+        display: block;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .header-wrapper {
+        .theme-toggle {
+            position: relative;
+            padding-bottom: 15px;
+        }
+    }
+}
