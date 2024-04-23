@@ -2,9 +2,11 @@
 
 # Compiled output
 dist
+.temp
 tmp
 /out-tsc
 /bazel-out
+/build
 
 # Dependencies
 node_modules
@@ -32,11 +34,18 @@ yarn-error.log
 /.sass-cache
 /connect.lock
 /coverage
+/.nyc_output
 /libpeerconnection.log
 npm-debug.log
+pnpm-debug.log
+yarn-debug.log
 yarn-error.log
+lerna-debug.log
 testem.log
 /typings
+logs
+*.log
+
 
 # System Files
 .DS_Store
@@ -44,3 +53,19 @@ Thumbs.db
 
 .nx/cache
 .angular
+
+# Dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
