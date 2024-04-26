@@ -4,13 +4,16 @@ import { User } from "../schemas/user.schema";
 import { Model } from "mongoose";
 import { RegisterUserDto } from "./dto/register-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
+import { hashPassword } from "../utils/bcrypt";
 
 @Injectable()
 export class UserService {
     constructor(@InjectModel(User.name) private userModel: Model<User>) { }
 
-    registerUser(registerUserDto: RegisterUserDto) {
-        const user = new this.userModel(registerUserDto);
+    async registerUser(registerUserDto: RegisterUserDto) {
+        const dateOfRegistration = Date.now();
+        const password = await hashPassword(registerUserDto.password);
+        const user = new this.userModel({...registerUserDto, password, dateOfRegistration});
         return user.save();
     }
 

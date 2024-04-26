@@ -51,7 +51,6 @@ export class UserController {
     registerUser(
         @Body() registerUserDto: RegisterUserDto
     ) {
-        registerUserDto.dateOfRegistration = Date.now();
         return this.userService.registerUser(registerUserDto);
     }
 
