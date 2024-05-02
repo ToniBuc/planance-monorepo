@@ -32,5 +32,7 @@ export class AuthenticationService {
                 username: user.username
             });
         }
+
+        return null;
     }
 }

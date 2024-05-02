@@ -1,26 +1,28 @@
-import { Body, Controller, Post, UnauthorizedException } from '@nestjs/common';
-import { AuthenticationDto } from './dto/authentication.dto';
-import { AuthenticationService } from './authentication.service';
+import { Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { LocalGuard } from './guards/local.guard';
+import { Request } from 'express';
+import { JwtAuthGuard } from './guards/jwt.guard';
 
 @Controller('authentication')
 export class AuthenticationController {
 
-    constructor(
-        private authenticationService: AuthenticationService
-    ) {
+    constructor() {
 
     }
 
     @Post('login')
+    @UseGuards(LocalGuard)
     async login(
-        @Body() authenticationDto: AuthenticationDto
+        @Req() req: Request
     ) {
-        const user = await this.authenticationService.validateUser(authenticationDto);
+        return req.user;
+    }
 
-        if (!user) {
-            throw new UnauthorizedException();
-        }
-
-        return user;
+    @Get('status')
+    @UseGuards(JwtAuthGuard)
+    status(
+        @Req() req: Request
+    ) {
+        return req.user;
     }
 }

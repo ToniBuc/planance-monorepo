@@ -5,6 +5,9 @@ import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from "../schemas/user.schema";
 import { ConfigModule } from '@nestjs/config';
+import { PassportModule } from '@nestjs/passport';
+import { LocalStrategy } from './strategies/local.strategy';
+import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
   imports: [
@@ -18,9 +21,14 @@ import { ConfigModule } from '@nestjs/config';
       signOptions: { 
         expiresIn: '30 minutes'
       }
-    })
+    }),
+    PassportModule
   ],
   controllers: [AuthenticationController],
-  providers: [AuthenticationService]
+  providers: [
+    AuthenticationService,
+    LocalStrategy,
+    JwtStrategy
+  ]
 })
 export class AuthenticationModule {}
