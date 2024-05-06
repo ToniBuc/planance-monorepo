@@ -1,8 +1,9 @@
-import { BadRequestException, Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, UsePipes, ValidationPipe } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, UseGuards, UsePipes, ValidationPipe } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { RegisterUserDto } from "./dto/register-user.dto";
 import mongoose from "mongoose";
 import { UpdateUserDto } from "./dto/update-user.dto";
+import { JwtAuthGuard } from "../authentication/guards/jwt.guard";
 
 @Controller('user')
 export class UserController {
@@ -10,11 +11,13 @@ export class UserController {
     constructor(private userService: UserService) { }
 
     @Get()
+    @UseGuards(JwtAuthGuard)
     async getUsers() {
         return await this.userService.getUsers();
     }
 
     @Get(':userId')
+    @UseGuards(JwtAuthGuard)
     async getUserById(
         @Param('userId') userId: string
     ) {
@@ -34,6 +37,7 @@ export class UserController {
     }
 
     @Get('username/:username')
+    @UseGuards(JwtAuthGuard)
     getUserByUsername(
         @Param('username') username: string
     ) {
@@ -47,6 +51,7 @@ export class UserController {
     }
 
     @Post()
+    @UseGuards(JwtAuthGuard)
     @UsePipes(new ValidationPipe())
     registerUser(
         @Body() registerUserDto: RegisterUserDto
@@ -55,6 +60,7 @@ export class UserController {
     }
 
     @Patch(':userId')
+    @UseGuards(JwtAuthGuard)
     @UsePipes(new ValidationPipe())
     async updateUser(
         @Param('userId') userId: string,
@@ -76,6 +82,7 @@ export class UserController {
     }
 
     @Delete(':userId')
+    @UseGuards(JwtAuthGuard)
     async deleteUser(
         @Param('userId') userId: string
     ) {
