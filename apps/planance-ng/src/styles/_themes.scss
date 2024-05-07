@@ -10,11 +10,14 @@ $textColor_dark: white;
 $borderColor_light: #121212;
 $borderColor_dark: white;
 
+$primaryColor: rgb(67, 134, 189);
+
 @mixin light() {
     --bgColor: #{$bgColor_light};
     --bgAltColor: #{$bgAltColor_light};
     --textColor: #{$textColor_light};
     --borderColor: #{$borderColor_light};
+    --primaryColor: #{$primaryColor};
 }
 
 @mixin dark() {
@@ -22,4 +25,5 @@ $borderColor_dark: white;
     --bgAltColor: #{$bgAltColor_dark};
     --textColor: #{$textColor_dark};
     --borderColor: #{$borderColor_dark};
+    --primaryColor: #{$primaryColor};
 }
