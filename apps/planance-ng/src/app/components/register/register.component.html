@@ -1,0 +1,25 @@
+<div class="register-wrapper">
+    <div class="register-image">
+        <img class="register-side-image" ngSrc="../../../assets/login-image.jpg" priority width="4000" height="6000"/>
+    </div>
+    <div class="register-form-wrapper">
+        <div class="logo">
+            <img class="logo-image" ngSrc="../../../assets/thatsanorder-black.png" priority width="500" height="336"/> <!-- placeholder -->
+        </div>
+        <div class="register-form">
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <h1 class="register-header">Register</h1>
+                <mat-form-field class="register-username" appearance="outline" >
+                    <mat-label>Username</mat-label>
+                    <input matInput name="username" type="text" placeholder="Enter username" formControlName="username" required>
+                </mat-form-field>
+                <mat-form-field class="register-password" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput name="password" type="password" placeholder="Enter password" formControlName="password" required>
+                </mat-form-field>
+                <button class="register-button" mat-flat-button color="primary">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -4,10 +4,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [
     CommonModule,
@@ -17,14 +17,13 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    RouterOutlet,
-    RouterLink
+    RouterOutlet
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss',
 })
-export class LoginComponent {
-  public loginForm = this.formBuilder.group({
+export class RegisterComponent {
+  public registerForm = this.formBuilder.group({
     username: [''],
     password: ['']
   })
@@ -33,7 +32,7 @@ export class LoginComponent {
     private formBuilder: FormBuilder
   ) {}
 
-  public async login(): Promise<void> {
-    console.log(this.loginForm.value);
+  public async register(): Promise<void> {
+    console.log(this.registerForm.value);
   }
 }

@@ -1,10 +1,10 @@
 <div class="login-wrapper">
     <div class="login-image">
-        <img class="login-side-image" src="../../../assets/login-image.jpg"/>
+        <img class="login-side-image" ngSrc="../../../assets/login-image.jpg" priority width="4000" height="6000"/>
     </div>
     <div class="login-form-wrapper">
         <div class="logo">
-            <img class="logo-image" src="../../../assets/thatsanorder-black.png"> <!-- placeholder -->
+            <img class="logo-image" ngSrc="../../../assets/thatsanorder-black.png" priority width="500" height="336"/> <!-- placeholder -->
         </div>
         <div class="login-form">
             <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -20,10 +20,10 @@
                 <button class="login-button" mat-flat-button color="primary">Login</button>
             </form>
             <div class="create-account-wrapper">
-                <p class="create-account-text">
-                    Don't have an account?&nbsp;
-                    <a class="create-account-link" href="#">Create one!</a>
-                </p>
+                <nav class="create-account-text">
+                    Don't have an account?
+                    <a class="create-account-link" routerLink="/register">Create one!</a>
+                </nav>
             </div>
 
         </div>
