@@ -23,13 +23,11 @@
         width: 40%;
         display: grid;
         grid-template-rows:repeat(2,50%);
-        grid-auto-flow: column; 
-        column-gap:1rem;
-        row-gap:70px;
 
         .logo {
             width: 50%;
             margin: auto;
+            margin-bottom: 15%;
             .logo-image {
                 width: 70%;
                 display: grid;
@@ -43,6 +41,10 @@
             border-radius: 15px;
             box-shadow: 0 3px 8px 0 lightgrey;
             padding: 25px 25px 25px 25px;
+            
+            --mdc-outlined-text-field-caret-color: var(--primaryColor);
+            --mdc-outlined-text-field-focus-outline-color: var(--primaryColor);
+            --mdc-outlined-text-field-focus-label-text-color: var(--primaryColor);
 
             .login-username {
                 width: 100%;
@@ -58,6 +60,22 @@
                 font-size: 17px;
                 --mdc-filled-button-container-color: var(--primaryColor);
                 border-radius: 30px;
+            }
+
+            .create-account-wrapper {
+                display: flex;
+                justify-content: center;
+                padding-top: 10px;
+            }
+
+            .create-account-text {
+                font-size: 16px;
+                margin: 0;
+            }
+
+            .create-account-link {
+                font-weight: bold;
+                text-decoration: none;
             }
         }
     }
