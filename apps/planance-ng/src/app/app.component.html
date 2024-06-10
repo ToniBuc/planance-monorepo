@@ -1,8 +1,1 @@
-<!-- app component template temporarily adjusted for testing -->
-<!-- <app-header></app-header> -->
-<app-theme-toggle style="display: none"></app-theme-toggle>
-<div *ngIf="showPlaceholder">
-    <h1>Placeholder page</h1>
-    <a class="button" routerLink="login">To login</a>
-</div>
-<router-outlet (activate)="togglePlaceholder($event)"></router-outlet>
+<router-outlet></router-outlet>

@@ -20,10 +20,10 @@ $primaryColor: rgb(67, 134, 189);
     --primaryColor: #{$primaryColor};
 }
 
-@mixin dark() {
-    --bgColor: #{$bgColor_dark};
-    --bgAltColor: #{$bgAltColor_dark};
-    --textColor: #{$textColor_dark};
-    --borderColor: #{$borderColor_dark};
-    --primaryColor: #{$primaryColor};
-}
+// @mixin dark() {
+//     --bgColor: #{$bgColor_dark};
+//     --bgAltColor: #{$bgAltColor_dark};
+//     --textColor: #{$textColor_dark};
+//     --borderColor: #{$borderColor_dark};
+//     --primaryColor: #{$primaryColor};
+// }
